@@ -19,7 +19,7 @@ const Coins = () => {
 
     return (
         <div>
-            {coinsData.map((coinData) =>
+            {coinsData.length>0 ? coinsData.map((coinData) =>
                 <Coin
                     key={coinData.id}
                     id={coinData.id}
@@ -27,7 +27,8 @@ const Coins = () => {
                     image={coinData.image}
                     currentPrice={coinData.current_price}
                 />
-            )}
+            ) : <h1>Loading...</h1>}
+            {}
         </div>
     );
 };

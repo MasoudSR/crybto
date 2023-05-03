@@ -8,10 +8,22 @@
     margin: 20px auto;
     border-radius: 60px;
     padding: 10px 20px 10px 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgb(71, 71, 71);
+    transition: all .3s;
+}
+
+.coinContainer:hover{
+    background-color: rgb(227, 227, 255);
+}
+
+.coinContainer:active{
+    box-shadow: inset 0px 0px 3px rgb(112, 112, 112);
 }
 
 .coinContainer img {
     width: 60px;
+    border-radius: 50%;
 }
 
 a{
