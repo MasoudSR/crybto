@@ -5,5 +5,11 @@
     background-color: white;
     border-radius: 30px;
     padding: 50px;
-    width: 600px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
 }

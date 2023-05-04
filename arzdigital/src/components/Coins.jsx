@@ -22,7 +22,7 @@ const Coins = () => {
     }, []);
 
     return (
-        <div>
+        <div className={styles.container}>
             {coinsData.length==0 && !error && <h1 className={styles.alert}>Loading...</h1>}
             {error && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
 
