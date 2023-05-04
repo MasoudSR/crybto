@@ -9,7 +9,7 @@ const Coin = ({ id, name, image, currentPrice }) => {
         <Link to={id} className={styles.coinContainer}>
             <img src={image} alt={name} />
             <h1>{name}</h1>
-            <h1>{currentPrice}$</h1>
+            <h1>{currentPrice.toLocaleString()}$</h1>
         </Link>
     );
 };
