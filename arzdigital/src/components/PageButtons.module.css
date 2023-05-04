@@ -1,5 +1,5 @@
 .container {
-    margin: auto;
+    margin: 10px auto;
     display: flex;
     padding: 10px 15px;
     background-color: white;

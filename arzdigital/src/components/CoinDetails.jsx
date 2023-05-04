@@ -30,9 +30,8 @@ const CoinDetails = () => {
                 <h3>Last Update:{coinData.last_updated}</h3>
                 <p dangerouslySetInnerHTML={{ __html: coinData.description.en }}></p>
                 <a href={coinData.links.homepage}>{coinData.links.homepage}</a>
-                {console.log(typeof(coinData.market_data.current_price.usd))}
             </div>
-            )
+        )
     };
 }
 

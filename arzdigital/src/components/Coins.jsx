@@ -20,7 +20,7 @@ const Coins = () => {
             }).catch(error => {
                 setError(error)
             });
-    }, []);
+    }, [pageNumber]);
 
     return (
         <div className={styles.container}>
