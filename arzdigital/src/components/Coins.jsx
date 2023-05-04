@@ -6,7 +6,7 @@ import styles from "./Coins.module.css"
 
 const Coins = () => {
     const [coinsData, setCoinsData] = useState([]);
-    const [error,setError] = useState("")
+    const [error, setError] = useState("")
 
     useEffect(() => {
         axios
@@ -15,15 +15,14 @@ const Coins = () => {
             )
             .then((res) => {
                 setCoinsData(res.data);
-            }).catch(error=>{
-                console.log(error)
+            }).catch(error => {
                 setError(error)
             });
     }, []);
 
     return (
         <div className={styles.container}>
-            {coinsData.length==0 && !error && <h1 className={styles.alert}>Loading...</h1>}
+            {coinsData.length == 0 && !error && <h1 className={styles.alert}>Loading...</h1>}
             {error && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
 
             {coinsData.map((coinData) =>
@@ -35,9 +34,8 @@ const Coins = () => {
                     currentPrice={coinData.current_price}
                 />
             )
-            
+
             }
-            
         </div>
     );
 };

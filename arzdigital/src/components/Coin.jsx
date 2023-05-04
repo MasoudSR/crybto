@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from "./Coin.module.css";
 
-const Coin = ({id, name, image, currentPrice }) => {
+const Coin = ({ id, name, image, currentPrice }) => {
     return (
         <Link to={id} className={styles.coinContainer}>
             <img src={image} alt={name} />

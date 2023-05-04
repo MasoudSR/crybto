@@ -1,4 +1,4 @@
-.coinContainer{
+.coinContainer {
     display: flex;
     flex-direction: row;
     background-color: white;
@@ -13,11 +13,11 @@
     margin: 10px;
 }
 
-.coinContainer:hover{
+.coinContainer:hover {
     background-color: rgb(227, 227, 255);
 }
 
-.coinContainer:active{
+.coinContainer:active {
     box-shadow: inset 0px 0px 3px rgb(112, 112, 112);
 }
 
@@ -26,7 +26,7 @@
     border-radius: 50%;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }

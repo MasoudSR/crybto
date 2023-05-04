@@ -1,4 +1,4 @@
-.alert{
+.alert {
     font-size: 30px;
     text-align: center;
     margin: 50px auto;
@@ -7,7 +7,7 @@
     padding: 50px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     padding: 20px;
