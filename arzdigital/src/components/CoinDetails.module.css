@@ -5,3 +5,17 @@
     padding: 20px;
     overflow: hidden;
 }
+
+.container img {
+    display: block;
+    margin: auto;
+}
+
+.alert {
+    font-size: 30px;
+    text-align: center;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 30px;
+    padding: 50px;
+}
