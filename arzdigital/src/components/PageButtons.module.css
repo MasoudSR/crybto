@@ -7,10 +7,19 @@
     user-select: none;
 }
 
-.container h2 {
+.pageNumber {
     margin: 0px 5px;
     color: white;
     background-color: rgb(41, 63, 255);
+    border-radius: 3px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.currentPage{
+    background-color: rgb(63, 186, 47);
+    margin: 0px 5px;
+    color: white;
     border-radius: 3px;
     padding: 0px 10px;
 }
