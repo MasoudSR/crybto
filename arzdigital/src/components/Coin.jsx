@@ -1,15 +1,17 @@
-import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 import styles from "./Coin.module.css";
 
-const Coin = ({ id, name, image, currentPrice }) => {
+const Coin = ({ id, symbol, name, image, currentPrice, priceChange }) => {
     return (
         <Link to={id} className={styles.coinContainer}>
-            <img src={image} alt={name} />
-            <h1>{name}</h1>
-            <h1>{currentPrice.toLocaleString()}$</h1>
+            <div className={styles.coinLogo}>
+                <img src={image} alt={name} />
+                <h1 >{symbol}</h1>
+            </div>
+            <h1 className={styles.item}>{name}</h1>
+            <h1 className={`${styles.item} ${priceChange >= 0 ? styles.green : styles.red}`}>{priceChange}%</h1>
+            <h1 className={styles.item}>${currentPrice.toLocaleString()}</h1>
         </Link>
     );
 };

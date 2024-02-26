@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from "./PageButtons.module.css"
 
 const PageButtons = ({ pageNumber, setPageNumber }) => {

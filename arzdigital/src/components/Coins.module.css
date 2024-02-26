@@ -10,6 +10,23 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 16px;
     justify-content: center;
+}
+
+.coinsHeader {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: white;
+}
+
+.coinsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    flex: 1 1 0;
 }
