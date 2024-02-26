@@ -14,14 +14,14 @@ const CoinDetails = () => {
     const { data, error, isError, isLoading } = useQuery({ queryKey: ["coin", params.id], queryFn: fetchCoin })
 
     const fetchToman = () => axios.get("https://raw.githubusercontent.com/margani/pricedb/main/tgju/current/price_dollar_rl/latest.json")
-    const { data: tomanData , isLoading:tomanIsLoading } = useQuery({ queryKey: ["toman"], queryFn: fetchToman })
+    const { data: tomanData, isLoading: tomanIsLoading, isError: isTomanError } = useQuery({ queryKey: ["toman"], queryFn: fetchToman })
 
     const fetchCoinChart = () =>
         axios.get(
             `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=7&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY
             }`
         );
-    const { data: chartData ,isLoading: chartIsLoading } = useQuery({ queryKey: ["chart", params.id], queryFn: fetchCoinChart });
+    const { data: chartData, isLoading: chartIsLoading, isError: isChartError } = useQuery({ queryKey: ["chart", params.id], queryFn: fetchCoinChart });
 
 
     if (isLoading) {
@@ -38,12 +38,13 @@ const CoinDetails = () => {
                     </div>
                     <h1>Name: {data.data.name}</h1>
                     <h1>Price: ${data.data.market_data.current_price.usd.toLocaleString()}</h1>
-                    {tomanIsLoading ? <h1>Loading Toman Data</h1> : <h1>{(parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd).toLocaleString()} Toman</h1>}
-                    
+                    {tomanIsLoading ? <h1>Getting Current Toman Price</h1> :
+                        !isTomanError && <h1>{(parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd).toLocaleString()} Toman</h1>}
                     <h3>Last Update: {convertToDate(data.data.last_updated)}</h3>
                 </div>
                 <div className={styles.chartContainer}>
                     {chartIsLoading ? <h1>Loading Chart</h1> :
+                        !isChartError &&
                         <ResponsiveContainer height={400}>
                             <LineChart
                                 data={convertChartData(chartData.data.prices)}
