@@ -1,17 +1,17 @@
-.alert {
-    font-size: 30px;
-    text-align: center;
-    margin: 50px auto;
-    background-color: white;
-    border-radius: 30px;
-    padding: 50px;
-}
-
 .container {
     display: flex;
     flex-direction: column;
     padding: 16px;
     justify-content: center;
+}
+
+.alert{
+    display: flex;
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0px 0px 5px rgb(71, 71, 71);
+    transition: all .3s;
 }
 
 .coinsHeader {

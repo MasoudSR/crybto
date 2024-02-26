@@ -17,15 +17,15 @@ const Coins = () => {
 
     return (
         <>
-            {isLoading && <h1 className={styles.alert}>Loading...</h1>}
             {isError && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
             <div className={styles.container}>
                 <div className={styles.coinsHeader}>
-                    <h2 className={styles.item}>Coin</h2>
+                    <h2 className={styles.item}></h2>
                     <h2 className={styles.item}>Name</h2>
                     <h2 className={styles.item}>24H Change</h2>
                     <h2 className={styles.item}>Price</h2>
                 </div>
+                {isLoading && <h1 className={styles.alert}>Loading...</h1>}
                 <div className={styles.coinsContainer}>
                     {data?.data.map((coinData) =>
                         <Coin

@@ -7,7 +7,7 @@ const Coin = ({ id, symbol, name, image, currentPrice, priceChange }) => {
         <Link to={id} className={styles.coinContainer}>
             <div className={styles.coinLogo}>
                 <img src={image} alt={name} />
-                <h1 >{symbol}</h1>
+                <h1>{symbol.toUpperCase()}</h1>
             </div>
             <h1 className={styles.item}>{name}</h1>
             <h1 className={`${styles.item} ${priceChange >= 0 ? styles.green : styles.red}`}>{priceChange}%</h1>
