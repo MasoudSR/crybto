@@ -25,9 +25,9 @@ const CoinDetails = () => {
 
 
     if (isLoading) {
-        <h1 className={styles.alert}>Loading</h1>
+        return <h1 className={styles.alert}>Loading</h1>
     } else if (isError) {
-        <h1 className={styles.alert}>${error.message}</h1>
+        return <h1 className={styles.alert}>${error.message}</h1>
     } else {
         return (
             <div className={styles.container}>
