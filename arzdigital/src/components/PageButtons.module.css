@@ -1,11 +1,10 @@
 .container {
-    margin: 20px auto;
-    padding: 7px 10px;
+    display: flex;
+    justify-content: center;
+    padding: 24px 10px;
     background-color: white;
     user-select: none;
-    border-radius: 25px;
-    display: flex;
-    box-shadow: inset 0px 0px 2px rgb(112, 112, 112);
+    border-top: 1px solid #E5E5E5;
     gap: 5px;
 }
 
@@ -13,18 +12,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     background-color: rgb(255, 255, 255);
     border: 1px solid #E5E5E5;
     cursor: pointer;
-    font-weight: 400;
     border-radius: 50%;
     color: #808080;
 }
 
-.pageNumber:hover {
+.pageNumber:active {
     color: white;
+    box-shadow: inset 0px 0px 10px rgb(144, 144, 144);
     background-color: rgba(95, 173, 255)
 }
 
@@ -35,9 +36,10 @@
     width: 40px;
     height: 40px;
     background-color: #4DA1FA;
-    font-weight: 400;
+    font-weight: 200;
     color: white;
     border-radius: 50%;
+    border: 1px solid #E5E5E5;
 }
 
 .threeDots {
@@ -47,4 +49,23 @@
     width: 40px;
     height: 40px;
     color: #808080;
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 7px 10px;
+        background-color: white;
+        user-select: none;
+        border-radius: 25px;
+        display: flex;
+        box-shadow: inset 0px 0px 2px rgb(112, 112, 112);
+        gap: 5px;
+        border-top: none;
+    }
+
+    .pageNumber:hover {
+        color: white;
+        background-color: rgba(95, 173, 255)
+    }
 }
