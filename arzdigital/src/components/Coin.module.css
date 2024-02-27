@@ -1,14 +1,11 @@
 .coinContainer {
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     align-items: center;
-    border-radius: 16px;
     padding: 16px;
     overflow: hidden;
-    box-shadow: 0px 0px 5px rgb(71, 71, 71);
     transition: all .3s;
-    gap: 8;
     font-size: 11px;
 }
 
@@ -21,23 +18,28 @@
 }
 
 .coinContainer img {
-    width: 60px;
+    width: 20px;
     border-radius: 20%;
 }
 
-.item {
+.price {
     flex: 1 1 0;
 }
 
-.coinLogo {
+.coinName {
     flex: 1 1 0;
+}
+
+.coinLogos {
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+    gap: 3px;
 }
 
-.coinLogo h1{
+.symbol {
+    color: rgb(82, 82, 82);
+}
+
+.coinLogo h1 {
     display: inline;
 }
 
@@ -46,11 +48,45 @@ a {
     color: black;
 }
 
-.green{
-    color: green;
+.percentage{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border-radius: 20px;
+    color: #ffffff;
+    justify-content: center;
+    width: 80px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
-.red{
-    color: red;
+.green {
+    background-color: rgb(0, 186, 0);
 }
 
+.red {
+    background-color: rgb(255, 23, 23);
+}
+
+.triangleUp{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #ffffff;
+}
+
+.triangleDown{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #ffffff;
+}
+
+
+/* @media (min-width: 1024px) {
+    .coinContainer{
+        flex-wrap: wrap;
+    }
+} */

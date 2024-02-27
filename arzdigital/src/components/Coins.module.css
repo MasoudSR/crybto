@@ -1,11 +1,10 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 16px;
     justify-content: center;
 }
 
-.alert{
+.alert {
     display: flex;
     background-color: white;
     border-radius: 16px;
@@ -21,12 +20,34 @@
     color: white;
 }
 
-.coinsContainer{
+.coinsContainer {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 2px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgb(71, 71, 71);
+    background-color: rgb(235, 235, 235);
+    max-width: 1024px;
 }
 
 .item {
     flex: 1 1 0;
+}
+
+
+@media (min-width: 768px) {
+    .coinsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .coinsContainer>a {
+        flex: 1 40%;
+    }
+}
+
+@media (min-width: 1024px){
+    .container{
+        align-items: center;
+    }
 }
