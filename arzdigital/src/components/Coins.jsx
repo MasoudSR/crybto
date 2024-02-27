@@ -5,6 +5,7 @@ import Coin from "./Coin";
 import styles from "./Coins.module.css"
 import PageButtons from "./PageButtons";
 import { useQuery } from "@tanstack/react-query";
+import CoinLoading from "./CoinLoading";
 
 const Coins = () => {
     const [pageNumber, setPageNumber] = useState(1)
@@ -17,16 +18,10 @@ const Coins = () => {
 
     return (
         <>
-            {isError && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
             <div className={styles.container}>
-                {/* <div className={styles.coinsHeader}>
-                    <h2 className={styles.item}></h2>
-                    <h2 className={styles.item}>Name</h2>
-                    <h2 className={styles.item}>24H Change</h2>
-                    <h2 className={styles.item}>Price</h2>
-                </div> */}
-                {isLoading && <h1 className={styles.alert}>Loading...</h1>}
+                {isError && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
                 <div className={styles.coinsContainer}>
+                    {isLoading && <CoinLoading />}
                     {data?.data.map((coinData) =>
                         <Coin
                             key={coinData.id}
