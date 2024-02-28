@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import "@fontsource/roboto";
+import "vazirmatn/misc/Farsi-Digits-Non-Latin/Vazirmatn-FD-NL-font-face.css"
 
 // components
 import Coins from './components/Coins'

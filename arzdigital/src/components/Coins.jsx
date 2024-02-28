@@ -5,7 +5,7 @@ import Coin from "./Coin";
 import styles from "./Coins.module.css"
 import PageButtons from "./PageButtons";
 import { useQuery } from "@tanstack/react-query";
-import CoinLoading from "./CoinLoading";
+import CoinLoading from "./Loading/CoinLoading";
 
 const Coins = () => {
     const [pageNumber, setPageNumber] = useState(1)

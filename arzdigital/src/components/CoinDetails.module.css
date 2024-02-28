@@ -6,7 +6,9 @@
     overflow: hidden;
     display: flex;
     justify-content: space-around;
-    max-width:1024px ;
+    max-width: 1024px;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .container img {
@@ -22,20 +24,77 @@
     padding: 50px;
 }
 
-.coinDetails{
-    flex: 1 2 0;
-}
-
-.chartContainer{
-    flex: 2 1 0;
-}
-
-.logo{
+.header {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
+.symbol {
+    color: gray;
+    font-size: 20px;
+}
+
+.prices {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toman {
+    font-family: "Vazirmatn FD NL";
+    direction: rtl;
+}
+
+.coinDetailsTable {
+    width: 100%;
+    font-size: 17px;
+    font-weight: 500;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.coinDetailsTable tr:first-child{
+    font-weight: 600;
+}
+
+.coinDetailsTable td:nth-child(2) {
+    text-align: right;
+}
+
+.coinDetailsTable tr {
+    border-bottom: 1px solid gray;
+}
+
+.coinDetailsTable td {
+    padding: 6px 0px;
+}
+
+.percentage {
+    display: inline-flex;
+    padding: 2px 10px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    width: 90px;
+}
+
+.green {
+    background-color: rgb(0, 186, 0);
+}
+
+.red {
+    background-color: rgb(255, 23, 23);
+}
+
+/* 
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -47,4 +106,4 @@
     .container {
         margin: 16px;
     }
-}
+} */
