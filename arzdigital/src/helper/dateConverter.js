@@ -1,6 +1,6 @@
-const convertToDay = (date) => {
+const convertToDate = (date) => {
 	const newDate = new Date(date);
-	return `${newDate.getDate()}`;
+	return `${newDate.toLocaleDateString()}`;
 };
 
 const convertToFullDate = (date) => {
@@ -8,4 +8,4 @@ const convertToFullDate = (date) => {
 	return `${newDate.toLocaleString()}`;
 };
 
-export { convertToDay, convertToFullDate };
+export { convertToDate, convertToFullDate };

@@ -8,7 +8,7 @@ function CoinLoading() {
 
   for (let i = 0; i < 10; i++) {
     LoadingComponent.push(
-      <a className={styles.coinContainer}>
+      <a key={i} className={styles.coinContainer}>
         <div className={styles.coinName}>
           <div className={styles.coinLogos}>
             <Skeleton width={20} height={19} />
