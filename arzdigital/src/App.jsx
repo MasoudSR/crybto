@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import "@fontsource/roboto";
 
 // components
 import Coins from './components/Coins'
