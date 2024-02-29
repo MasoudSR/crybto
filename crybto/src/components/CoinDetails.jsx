@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./CoinDetails.module.css"
 import { useQuery } from "@tanstack/react-query";
 import { LineChart, Line, CartesianGrid, YAxis, XAxis, Legend, Tooltip, ResponsiveContainer } from 'recharts';
@@ -8,7 +8,8 @@ import { convertToFullDate } from "../helper/dateConverter";
 import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
 import { useState } from "react";
 import CoinDetailsLoading from "./Loading/CoinDetailsLoading";
-
+import Skeleton from 'react-loading-skeleton'
+import { MdArrowBackIosNew, MdArrowBack } from "react-icons/md";
 
 
 const CoinDetails = () => {
@@ -65,8 +66,11 @@ const CoinDetails = () => {
         return (
             <div className={styles.container}>
                 <div className={styles.header}>
+                    <Link to={"/"}>
+                        <MdArrowBack size={30} />
+                    </Link>
                     <img src={data.data.image.large} alt={data.data.name} />
-                    <h1>{data.data.name} <span className={styles.symbol}>({data.data.symbol.toUpperCase()})</span></h1>
+                    <h1>{data.data.name}<span className={styles.symbol}>({data.data.symbol.toUpperCase()})</span></h1>
                 </div>
                 <div className={styles.coinDetails}>
                     <table className={styles.coinDetailsTable}>
@@ -143,38 +147,38 @@ const CoinDetails = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className={styles.chartContainer}>
-                    {chartIsLoading ?
-                        <div className={styles.chartLoading} />
-                        :
-                        !isChartError &&
-                        <div>
-                            <div className={styles.chartHeader}>
-                                <h2>Price Changes Chart</h2>
-                                <div className={styles.chartButtons}>
-                                    <button className={chartDays == "7" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(7) }}>7 Days</button>
-                                    <button className={chartDays == "30&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(30) }}>30 Days</button>
-                                    <button className={chartDays == "90&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(90) }}>3 Months</button>
-                                    <button className={chartDays == "180&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(180) }}>6 Months</button>
-                                    <button className={chartDays == "36&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(365) }}>1 Year</button>
-                                </div>
+                {!isChartError &&
+                    <div className={styles.chartContainer}>
+                        <div className={styles.chartHeader}>
+                            <h2>Price Changes Chart</h2>
+                            <div className={styles.chartButtons}>
+                                <button className={chartDays == "7" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(7) }}>7 Days</button>
+                                <button className={chartDays == "30&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(30) }}>30 Days</button>
+                                <button className={chartDays == "90&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(90) }}>3 Months</button>
+                                <button className={chartDays == "180&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(180) }}>6 Months</button>
+                                <button className={chartDays == "36&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(365) }}>1 Year</button>
                             </div>
-
-                            <ResponsiveContainer height={400}>
-                                <LineChart
-                                    data={convertChartData(chartData.data.prices)}
-                                >
-                                    <Line type="monotone" dataKey="price" stroke="#3874ff" strokeWidth="2px" />
-                                    <CartesianGrid stroke="#404042" />
-                                    <YAxis dataKey="price" domain={["auto", "auto"]} hide />
-                                    <XAxis dataKey="shortDate" interval={chartInterval} />
-                                    <Tooltip content={"test"} />
-                                    <Legend />
-                                </LineChart>
-                            </ResponsiveContainer>
                         </div>
-                    }
-                </div>
+                        {
+                            chartIsLoading ?
+                                <Skeleton height={400} />
+                                :
+                                <div>
+                                    <ResponsiveContainer height={400}>
+                                        <LineChart
+                                            data={convertChartData(chartData.data.prices)}
+                                        >
+                                            <Line type="monotone" dataKey="price" stroke="#3874ff" strokeWidth="2px" />
+                                            <CartesianGrid stroke="#404042" />
+                                            <YAxis dataKey="price" domain={["auto", "auto"]} hide />
+                                            <XAxis dataKey="shortDate" interval={chartInterval} />
+                                            <Tooltip content={"test"} />
+                                            <Legend />
+                                        </LineChart>
+                                    </ResponsiveContainer>
+                                </div>
+                        }
+                    </div>}
             </div>
         )
     }

@@ -3,6 +3,7 @@ import './App.css'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import "@fontsource/roboto";
 import "vazirmatn/misc/Farsi-Digits-Non-Latin/Vazirmatn-FD-NL-font-face.css"
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // components
 import Coins from './components/Coins'
