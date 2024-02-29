@@ -1,12 +1,10 @@
 import styles from './Header.module.css';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div className={styles.container}>
-            <Link to="/">
-                ArzDigital
-            </Link>
+            <img src="./logo.png" alt="CRYBTO" title="Crybto" />
+            <div className={styles.description}>Cryptocurrency Price Board</div>
         </div>
     );
 };

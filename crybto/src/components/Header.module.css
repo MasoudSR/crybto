@@ -1,11 +1,27 @@
 .container {
     text-align: center;
-    font-size: 5rem;
     font-weight: bolder;
-    color: white;
-    margin: 50px 0;
+    color: #454A75;
+    margin: 50px 0px 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.container a{
-    color: white;
+.container img {
+    width: 350px;
+    pointer-events: none;
+    user-select: none;
+    font-size: 70px;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 300;
+    background-color: white;
+    display: flex;
+    padding: 7px 28px;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 2px rgb(144, 144, 144);
 }
