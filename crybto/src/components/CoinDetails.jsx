@@ -74,7 +74,7 @@ const CoinDetails = () => {
                             <tr>
                                 <td>${data.data.market_data.current_price.usd.toLocaleString()}</td>
                                 {tomanIsLoading ? <td>Getting Current Toman Price</td> :
-                                    !isTomanError && <td className={styles.toman}>{(parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd).toLocaleString()} تومان</td>}
+                                    !isTomanError && <td className={styles.toman}>{parseInt((parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd)).toLocaleString()} تومان</td>}
                             </tr>
                             <tr>
                                 <td>Last Update</td>
