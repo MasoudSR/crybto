@@ -14,7 +14,7 @@ const Coins = () => {
 
     const fetchCoins = () => axios.get(api)
 
-    const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", pageNumber], queryFn: fetchCoins })
+    const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", pageNumber], queryFn: fetchCoins, refetchInterval: 3 * 60 * 1000 })
 
     return (
         <>

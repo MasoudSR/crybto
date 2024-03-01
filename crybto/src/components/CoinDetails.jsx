@@ -9,7 +9,7 @@ import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
 import { useState } from "react";
 import CoinDetailsLoading from "./Loading/CoinDetailsLoading";
 import Skeleton from 'react-loading-skeleton'
-import { MdArrowBackIosNew, MdArrowBack } from "react-icons/md";
+import { MdArrowBack } from "react-icons/md";
 
 
 const CoinDetails = () => {
@@ -19,17 +19,17 @@ const CoinDetails = () => {
     const [chartInterval, setChartInterval] = useState(28)
 
     const fetchCoin = () => axios.get(`https://api.coingecko.com/api/v3/coins/${params.id}?localization=false&tickers=false&community_data=false&developer_data=false&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY}`)
-    const { data, error, isError, isLoading } = useQuery({ queryKey: ["coin", params.id], queryFn: fetchCoin })
+    const { data, error, isError, isLoading } = useQuery({ queryKey: ["coin", params.id], queryFn: fetchCoin, refetchInterval: 3 * 60 * 1000 })
 
     const fetchToman = () => axios.get("https://raw.githubusercontent.com/margani/pricedb/main/tgju/current/price_dollar_rl/latest.json")
-    const { data: tomanData, isLoading: tomanIsLoading, isError: isTomanError } = useQuery({ queryKey: ["toman"], queryFn: fetchToman })
+    const { data: tomanData, isLoading: tomanIsLoading, isError: isTomanError } = useQuery({ queryKey: ["toman"], queryFn: fetchToman, refetchInterval: 3 * 60 * 1000 })
 
     const fetchCoinChart = () =>
         axios.get(
             `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${chartDays}&precision=2&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY
             }`
         );
-    const { data: chartData, isLoading: chartIsLoading, isError: isChartError } = useQuery({ queryKey: ["chart", params.id, chartDays], queryFn: fetchCoinChart });
+    const { data: chartData, isLoading: chartIsLoading, isError: isChartError } = useQuery({ queryKey: ["chart", params.id, chartDays], queryFn: fetchCoinChart, refetchInterval: 3 * 60 * 1000 });
 
     const chartDaysHandler = (day) => {
         switch (day) {
