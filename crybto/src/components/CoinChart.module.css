@@ -1,0 +1,40 @@
+.chartContainer {
+    font-size: 12px;
+}
+
+.chartHeader{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 10px;
+    flex-flow: row wrap;
+    gap: 8px;
+}
+
+.chartButtons {
+    display: flex;
+    gap: 5px;
+}
+
+.activeBtn {
+    padding: 4px 8px;
+    border: 1px solid rgba(95, 173, 255);
+    background-color: rgba(95, 173, 255);
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.chartBtn {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(95, 173, 255);
+    padding: 4px 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chartBtn:hover {
+    padding: 4px 8px;
+    border: 1px solid rgba(95, 173, 255);
+    background-color: rgba(95, 172, 255, 0.793);
+    border-radius: 20px;
+    color: #ffffff;
+}

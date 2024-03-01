@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import styles from "../CoinDetails.module.css"
 import Skeleton from 'react-loading-skeleton'
 import { MdArrowBack } from "react-icons/md"
+import CoinChartLoading from "./CoinChartLoading"
 
 const CoinDetailsLoading = () => {
     return (
@@ -68,19 +69,7 @@ const CoinDetailsLoading = () => {
                     </tbody>
                 </table>
             </div>
-            <div className={styles.chartContainer}>
-                <div className={styles.chartHeader}>
-                    <h2>Price Changes Chart</h2>
-                    <div className={styles.chartButtons}>
-                        <Skeleton width={80} height={22} />
-                        <Skeleton width={80} height={22} />
-                        <Skeleton width={80} height={22} />
-                        <Skeleton width={80} height={22} />
-                        <Skeleton width={80} height={22} />
-                    </div>
-                </div>
-                <Skeleton height={400} />
-            </div>
+            <CoinChartLoading />
         </div>
     )
 }
