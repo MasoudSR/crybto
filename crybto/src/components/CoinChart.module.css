@@ -2,10 +2,10 @@
     font-size: 12px;
 }
 
-.chartHeader{
+.chartHeader {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0 10px;
+    margin: 30px 0 20px;
     flex-flow: row wrap;
     gap: 8px;
 }

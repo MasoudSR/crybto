@@ -7,6 +7,7 @@ import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
 import CoinDetailsLoading from "./Loading/CoinDetailsLoading";
 import { MdArrowBack } from "react-icons/md";
 import CoinChart from "./CoinChart";
+import Skeleton from "react-loading-skeleton";
 
 
 const CoinDetails = () => {
@@ -38,7 +39,7 @@ const CoinDetails = () => {
                         <tbody>
                             <tr>
                                 <td>${data.data.market_data.current_price.usd.toLocaleString()}</td>
-                                {tomanIsLoading ? <td>Getting Current Toman Price</td> :
+                                {tomanIsLoading ? <td><Skeleton width={170} height={21} /></td> :
                                     !isTomanError && <td className={styles.toman}>{parseInt((parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd)).toLocaleString()} تومان</td>}
                             </tr>
                             <tr>

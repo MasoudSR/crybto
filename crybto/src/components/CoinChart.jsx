@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { LineChart, Line, CartesianGrid, YAxis, XAxis, Legend, Tooltip, ResponsiveContainer } from 'recharts';
-import convertChartData from "../helper/convertChartData";
-import styles from "./CoinChart.module.css"
-
-import Skeleton from 'react-loading-skeleton'
+import { LineChart, Line, CartesianGrid, YAxis, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import convertChartData from "../helper/convertChartData";
+import styles from "./CoinChart.module.css"
+import Skeleton from 'react-loading-skeleton'
+
 
 function CoinChart({ coinId }) {
 
@@ -26,23 +26,23 @@ function CoinChart({ coinId }) {
         switch (day) {
             case 7:
                 setChartDays("7")
-                setChartInterval(28)
+                setChartInterval(22)
                 break;
             case 30:
                 setChartDays("30&interval=daily")
-                setChartInterval(5)
+                setChartInterval(3)
                 break;
             case 90:
                 setChartDays("90&interval=daily")
-                setChartInterval(15)
+                setChartInterval(11)
                 break;
             case 180:
                 setChartDays("180&interval=daily")
-                setChartInterval(30)
+                setChartInterval(23)
                 break;
             case 365:
                 setChartDays("365&interval=daily")
-                setChartInterval(62)
+                setChartInterval(47)
                 break;
             default:
                 break;
@@ -59,24 +59,24 @@ function CoinChart({ coinId }) {
                         <button className={chartDays == "30&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(30) }}>30 Days</button>
                         <button className={chartDays == "90&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(90) }}>3 Months</button>
                         <button className={chartDays == "180&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(180) }}>6 Months</button>
-                        <button className={chartDays == "36&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(365) }}>1 Year</button>
+                        <button className={chartDays == "365&interval=daily" ? styles.activeBtn : styles.chartBtn} onClick={() => { chartDaysHandler(365) }}>1 Year</button>
                     </div>
                 </div>
                 {
                     chartIsLoading ?
                         <Skeleton height={400} />
                         :
-                        <div>
+                        <div className={styles.chart}>
                             <ResponsiveContainer height={400}>
                                 <LineChart
                                     data={convertChartData(chartData.data.prices)}
+
                                 >
                                     <Line type="monotone" dataKey="price" stroke="#3874ff" strokeWidth="2px" />
-                                    <CartesianGrid stroke="#404042" />
-                                    <YAxis dataKey="price" domain={["auto", "auto"]} hide />
-                                    <XAxis dataKey="shortDate" interval={chartInterval} />
-                                    <Tooltip content={"test"} />
-                                    <Legend />
+                                    <CartesianGrid stroke="#404042" strokeDasharray={5} vertical={false} />
+                                    <YAxis dataKey="price" domain={["auto", "auto"]} unit="$" />
+                                    <XAxis dataKey="shortDate" interval={chartInterval} angle={45} dx={15} dy={20} height={50} />
+                                    <Tooltip />
                                 </LineChart>
                             </ResponsiveContainer>
                         </div>
