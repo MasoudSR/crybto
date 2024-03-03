@@ -8,6 +8,7 @@
     transition: all .3s;
     font-size: 9px;
     gap: 8px;
+    margin-top: 1px;
 }
 
 .coinContainer:hover {

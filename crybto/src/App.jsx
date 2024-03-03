@@ -6,7 +6,7 @@ import "vazirmatn/misc/Farsi-Digits-Non-Latin/Vazirmatn-FD-NL-font-face.css"
 import 'react-loading-skeleton/dist/skeleton.css'
 
 // components
-import Coins from './components/Coins'
+import Main from './components/Main';
 import CoinDetails from "./components/CoinDetails"
 import Header from './components/Header'
 
@@ -18,7 +18,7 @@ function App() {
       <Header />
       <QueryClientProvider client={queryClient}>
         <Routes>
-          <Route path="/" element={<Coins />} />
+          <Route path="/" element={<Main />} />
           <Route path='/:id' element={<CoinDetails />} />
         </Routes>
       </QueryClientProvider>

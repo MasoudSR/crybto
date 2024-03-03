@@ -17,26 +17,24 @@ const Coins = () => {
     const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", pageNumber], queryFn: fetchCoins, refetchInterval: 3 * 60 * 1000 })
 
     return (
-        <>
-            <div className={styles.container}>
-                {isError && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
-                <div className={styles.coinsContainer}>
-                    {isLoading && <CoinLoading />}
-                    {data?.data.map((coinData) =>
-                        <Coin
-                            key={coinData.id}
-                            id={coinData.id}
-                            symbol={coinData.symbol}
-                            name={coinData.name}
-                            image={coinData.image}
-                            currentPrice={coinData.current_price}
-                            priceChange={coinData.price_change_percentage_24h}
-                        />
-                    )}
-                </div>
-                <PageButtons pageNumber={pageNumber} setPageNumber={setPageNumber} />
+        <div className={styles.container}>
+            {isError && (<h1 className={styles.alert}>{error.message}<p>Please try again later</p></h1>)}
+            <div className={styles.coinsContainer}>
+                {isLoading && <CoinLoading />}
+                {data?.data.map((coinData) =>
+                    <Coin
+                        key={coinData.id}
+                        id={coinData.id}
+                        symbol={coinData.symbol}
+                        name={coinData.name}
+                        image={coinData.image}
+                        currentPrice={coinData.current_price}
+                        priceChange={coinData.price_change_percentage_24h}
+                    />
+                )}
             </div>
-        </>
+            <PageButtons pageNumber={pageNumber} setPageNumber={setPageNumber} />
+        </div>
     );
 };
 
