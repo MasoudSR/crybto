@@ -20,7 +20,7 @@ function Search({ searchBar }) {
 
     return (
         <div className={styles.container}>
-            <DebounceInput debounceTimeout={800} onChange={searchHandler} className={styles.searchBox} />
+            <DebounceInput placeholder={"Search"} debounceTimeout={800} onChange={searchHandler} className={styles.searchBox} />
             {searchBar &&
                 <div className={styles.searchResults}>
                     {isError && <p className={styles.resultTile}>Error in receiving data, try again</p>}

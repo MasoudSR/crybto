@@ -17,7 +17,7 @@ function Main() {
             <div className={`${styles.header} ${searchBar && styles.activeSearch}`}>
                 <div className={styles.headerButtons}>
                     <div className={pageName == "all" ? styles.btnActive : undefined} onClick={() => { setPageName("all") }}>All Coins</div>
-                    {/* <div className={pageName == "fav" ? styles.btnActive : undefined} onClick={() => { setPageName("fav") }}>Favorites</div> */}
+                    <div className={pageName == "fav" ? styles.btnActive : undefined} onClick={() => { setPageName("fav") }}>Favorites</div>
                     <div className={searchBar ? styles.searchBtnActive : undefined} onClick={() => { setSearchBar(!searchBar) }}>{!searchBar ? <BiSearchAlt2 size={20} /> : <IoIosArrowUp />}</div>
                 </div>
                 <div className={styles.searchBox}>
@@ -26,7 +26,7 @@ function Main() {
             </div>
 
             {pageName == "all" && <Coins />}
-            {/* {pageName == "fav" && <Favorites />} */}
+            {pageName == "fav" && <Favorites />}
         </div>
     )
 }

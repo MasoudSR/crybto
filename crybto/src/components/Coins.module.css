@@ -20,18 +20,27 @@
     box-shadow: 0px 0px 3px rgb(93, 93, 93);
     background-color: rgb(235, 235, 235);
     max-width: 1024px;
+    padding-top: 1px;
+    min-height: 300px;
 }
 
 .alert {
     display: flex;
+    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: 16px 16px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
     box-shadow: 0px 0px 3px rgb(93, 93, 93);
     background-color: rgb(255, 255, 255);
     max-width: 1024px;
     padding: 30px 0px 500px;
+}
+
+.alert p {
+    display: flex;
+    align-items: center;
+    gap: 2px;
 }
 
 .item {
@@ -44,6 +53,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         border-radius: 0px 0px 16px 16px;
+        align-items: baseline;
     }
 
     .coinsContainer>a {
@@ -52,7 +62,7 @@
 
     .alert {
         background-color: white;
-        border-radius: 16px;
+        border-radius: 0 0 16px 16px;
         padding: 16px;
         min-height: 200px;
         box-shadow: 0px 0px 3px rgb(71, 71, 71);
@@ -60,11 +70,6 @@
         gap: 2px;
         box-shadow: 0px 0px 3px rgb(93, 93, 93);
         background-color: rgb(255, 255, 255);
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        align-items: center;
+        border-top: 1px solid rgb(209, 209, 209);
     }
 }

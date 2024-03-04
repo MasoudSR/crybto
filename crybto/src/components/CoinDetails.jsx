@@ -8,10 +8,15 @@ import CoinDetailsLoading from "./Loading/CoinDetailsLoading";
 import { MdArrowBack } from "react-icons/md";
 import CoinChart from "./CoinChart";
 import Skeleton from "react-loading-skeleton";
+import { useState } from "react";
+import { addToFav, isFavorite, removeFromFav } from "../helper/favoritesManager";
+import { TiStarOutline, TiStarFullOutline } from "react-icons/ti";
 
 
 const CoinDetails = () => {
     const params = useParams();
+
+    const [favorite, setFavorite] = useState(isFavorite(params.id))
 
     const fetchCoin = () => axios.get(`https://api.coingecko.com/api/v3/coins/${params.id}?localization=false&tickers=false&community_data=false&developer_data=false&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY}`)
     const { data, error, isError, isLoading } = useQuery({ queryKey: ["coin", params.id], queryFn: fetchCoin, refetchInterval: 3 * 60 * 1000 })
@@ -19,6 +24,16 @@ const CoinDetails = () => {
     const fetchToman = () => axios.get("https://raw.githubusercontent.com/margani/pricedb/main/tgju/current/price_dollar_rl/latest.json")
     const { data: tomanData, isLoading: tomanIsLoading, isError: isTomanError } = useQuery({ queryKey: ["toman"], queryFn: fetchToman, refetchInterval: 3 * 60 * 1000 })
 
+    const favoriteHandler = () => {
+        isFavorite("bitcoin")
+        if (favorite) {
+            removeFromFav(params.id)
+            setFavorite(!favorite)
+        } else {
+            addToFav(params.id)
+            setFavorite(!favorite)
+        }
+    }
 
     if (isLoading) {
         return <CoinDetailsLoading />
@@ -33,6 +48,7 @@ const CoinDetails = () => {
                     </Link>
                     <img src={data.data.image.large} alt={data.data.name} />
                     <h1>{data.data.name}<span className={styles.symbol}>({data.data.symbol.toUpperCase()})</span></h1>
+                    <div onClick={favoriteHandler}>{favorite ? <TiStarFullOutline size={30} color="#F7D001" /> : <TiStarOutline size={30} />}</div>
                 </div>
                 <div className={styles.coinDetails}>
                     <table className={styles.coinDetailsTable}>
