@@ -60,7 +60,7 @@ const CoinDetails = () => {
                     <table className={styles.coinDetailsTable}>
                         <tbody>
                             <tr>
-                                <td>${data.data.market_data.current_price.usd < 1000 ? data.data.market_data.current_price.usd : data.data.market_data.current_price.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.current_price.usd < 1000 ? data.data.market_data.current_price.usd : data.data.market_data.current_price.usd?.toLocaleString()}</td>
                                 {tomanIsLoading ? <td><Skeleton width={170} height={21} /></td> :
                                     !isTomanError && <td className={styles.toman}>{parseInt((parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd)).toLocaleString()} تومان</td>}
                             </tr>
@@ -74,30 +74,30 @@ const CoinDetails = () => {
                             </tr>
                             <tr>
                                 <td>Market cap</td>
-                                <td>${data.data.market_data.market_cap.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.market_cap.usd?.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td>Total volume</td>
-                                <td>${data.data.market_data.total_volume.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.total_volume.usd?.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td>Lowest in 24 hours</td>
-                                <td>${data.data.market_data.low_24h.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.low_24h.usd?.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td>Price change in 24 hours</td>
-                                <td>${data.data.market_data.price_change_24h_in_currency.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.price_change_24h_in_currency.usd?.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td>Highest in 24 hours</td>
-                                <td>${data.data.market_data.high_24h.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.high_24h.usd?.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td>Price change in 24 hours</td>
                                 <td>
                                     <span className={`${styles.percentage} ${data.data.market_data.price_change_percentage_24h >= 0 ? styles.green : styles.red}`}>
                                         {data.data.market_data.price_change_percentage_24h >= 0 ? <TbTriangleFilled size={10} /> : <TbTriangleInvertedFilled size={10} />}
-                                        {data.data.market_data.price_change_percentage_24h.toFixed(2)}%
+                                        {data.data.market_data.price_change_percentage_24h?.toFixed(2)}%
                                     </span>
                                 </td>
                             </tr>
@@ -106,7 +106,7 @@ const CoinDetails = () => {
                                 <td>
                                     <span className={`${styles.percentage} ${data.data.market_data.price_change_percentage_7d >= 0 ? styles.green : styles.red}`}>
                                         {data.data.market_data.price_change_percentage_7d >= 0 ? <TbTriangleFilled size={10} /> : <TbTriangleInvertedFilled size={10} />}
-                                        {data.data.market_data.price_change_percentage_7d.toFixed(2)}%
+                                        {data.data.market_data.price_change_percentage_7d?.toFixed(2)}%
                                     </span>
                                 </td>
                             </tr>
@@ -115,7 +115,7 @@ const CoinDetails = () => {
                                 <td>
                                     <span className={`${styles.percentage} ${data.data.market_data.price_change_percentage_30d >= 0 ? styles.green : styles.red}`}>
                                         {data.data.market_data.price_change_percentage_30d >= 0 ? <TbTriangleFilled size={10} /> : <TbTriangleInvertedFilled size={10} />}
-                                        {data.data.market_data.price_change_percentage_30d.toFixed(2)}%
+                                        {data.data.market_data.price_change_percentage_30d?.toFixed(2)}%
                                     </span>
                                 </td>
                             </tr>
@@ -124,7 +124,7 @@ const CoinDetails = () => {
                                 <td>
                                     <span className={`${styles.percentage} ${data.data.market_data.price_change_percentage_1y >= 0 ? styles.green : styles.red}`}>
                                         {data.data.market_data.price_change_percentage_1y >= 0 ? <TbTriangleFilled size={10} /> : <TbTriangleInvertedFilled size={10} />}
-                                        {data.data.market_data.price_change_percentage_1y.toFixed(2)}%
+                                        {data.data.market_data.price_change_percentage_1y?.toFixed(2)}%
                                     </span>
                                 </td>
                             </tr>

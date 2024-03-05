@@ -17,7 +17,9 @@ const Coin = ({ id, symbol, name, image, currentPrice, priceChange, lastUpdate }
                 <h1>${currentPrice < 1000 ? currentPrice : currentPrice.toLocaleString()}</h1>
                 <p>{convertToFullDate(lastUpdate)}</p>
             </div>
-            <h1 className={`${styles.percentage} ${priceChange >= 0 ? styles.green : styles.red}`}> {priceChange >= 0 ? <span className={styles.triangleUp} /> : <span className={styles.triangleDown} />}  {priceChange.toFixed(2)}%</h1>
+            {priceChange &&
+                <h1 className={`${styles.percentage} ${priceChange >= 0 ? styles.green : styles.red}`}> {priceChange >= 0 ? <span className={styles.triangleUp} /> : <span className={styles.triangleDown} />}  {priceChange?.toFixed(2)}%</h1>
+            }
         </Link>
     );
 };

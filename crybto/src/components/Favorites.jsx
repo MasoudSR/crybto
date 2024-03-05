@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import Coin from "./Coin";
 import CoinLoading from "./Loading/CoinLoading";
 import { TiStarOutline } from "react-icons/ti";
-// import PageButtons from "./PageButtons";
+import PageButtons from "./PageButtons";
 
 // Other 
 import styles from "./Coins.module.css"
@@ -15,13 +15,13 @@ import { getFavorites } from "../helper/favoritesManager";
 
 
 const Favorites = () => {
-  // const [pageNumber, setPageNumber] = useState(1)
+  const [pageNumber, setPageNumber] = useState(1)
   const [favorites] = useState(getFavorites)
-  const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${favorites.toString()}&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY}`
+  const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${favorites.toString()}&order=market_cap_desc&per_page=10&page=${pageNumber}&sparkline=false&locale=en&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY}`
 
   const fetchCoins = () => axios.get(api)
 
-  const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", favorites], queryFn: fetchCoins, refetchInterval: 60 * 1000 })
+  const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", favorites , pageNumber], queryFn: fetchCoins, refetchInterval: 60 * 1000 })
 
   if (!favorites.length) {
     return <p className={styles.alert}>
@@ -46,7 +46,9 @@ const Favorites = () => {
           />
         )}
       </div>
-      {/* <PageButtons pageNumber={pageNumber} setPageNumber={setPageNumber} /> */}
+      {favorites.length > 10 &&
+        <PageButtons pageNumber={pageNumber} setPageNumber={setPageNumber} lastPage={Math.ceil(favorites.length / 10)} />
+      }
     </div>
   );
 };

@@ -18,7 +18,7 @@ const Coins = () => {
 
     const fetchCoins = () => axios.get(api)
 
-    const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", pageNumber], queryFn: fetchCoins , refetchInterval: 60 * 1000 })
+    const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", pageNumber], queryFn: fetchCoins, refetchInterval: 60 * 1000 })
 
     return (
         <div className={styles.container}>
@@ -38,7 +38,7 @@ const Coins = () => {
                     />
                 )}
             </div>
-            <PageButtons pageNumber={pageNumber} setPageNumber={setPageNumber} />
+            <PageButtons pageNumber={pageNumber} setPageNumber={setPageNumber} lastPage={1305} />
         </div>
     );
 };
