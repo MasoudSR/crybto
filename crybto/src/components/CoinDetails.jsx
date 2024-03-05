@@ -1,20 +1,25 @@
+// Hooks
+import { useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import styles from "./CoinDetails.module.css"
 import { useQuery } from "@tanstack/react-query";
-import { convertToFullDate } from "../helper/dateConverter";
-import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
+
+// Components 
 import CoinDetailsLoading from "./Loading/CoinDetailsLoading";
-import { MdArrowBack } from "react-icons/md";
 import CoinChart from "./CoinChart";
 import Skeleton from "react-loading-skeleton";
-import { useState } from "react";
-import { addToFav, isFavorite, removeFromFav } from "../helper/favoritesManager";
+import { TbTriangleFilled, TbTriangleInvertedFilled } from "react-icons/tb";
+import { MdArrowBack } from "react-icons/md";
 import { TiStarOutline, TiStarFullOutline } from "react-icons/ti";
 
 
+// Other 
+import styles from "./CoinDetails.module.css"
+import { convertToFullDate } from "../helper/dateConverter";
+import { addToFav, isFavorite, removeFromFav } from "../helper/favoritesManager";
+
+
 const CoinDetails = () => {
-    const matn = 15.56511965
     const params = useParams();
 
     const [favorite, setFavorite] = useState(isFavorite(params.id))
@@ -39,7 +44,7 @@ const CoinDetails = () => {
     if (isLoading) {
         return <CoinDetailsLoading />
     } else if (isError) {
-        return <h1 className={styles.alert}>${error.message}</h1>
+        return <h1 className={styles.alert}>Something went wrong, try again later. error message:{error.message}</h1>
     } else {
         return (
             <div className={styles.container}>

@@ -9,6 +9,8 @@
     max-width: 1024px;
     flex-direction: column;
     gap: 16px;
+    /* box-shadow: 0px 0px 3px rgb(93, 93, 93); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .container img {
@@ -16,14 +18,13 @@
     border-radius: 10px;
 }
 
-/* .alert {
+.alert {
     font-size: 30px;
     text-align: center;
-    margin: 50px 20px;
     background-color: white;
     border-radius: 30px;
     padding: 50px;
-} */
+}
 
 .header {
     display: flex;
@@ -31,7 +32,7 @@
     gap: 6px;
 }
 
-.header a{
+.header a {
     margin-right: 10px;
 }
 
@@ -103,5 +104,9 @@
     .container {
         border-radius: 20px;
         margin-bottom: 20px;
+    }
+
+    .alert {
+        margin: 50px 20px;
     }
 }
