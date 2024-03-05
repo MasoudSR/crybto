@@ -21,7 +21,7 @@ const Favorites = () => {
 
   const fetchCoins = () => axios.get(api)
 
-  const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", favorites], queryFn: fetchCoins, refetchInterval: 3 * 60 * 1000 })
+  const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", favorites], queryFn: fetchCoins, refetchInterval: 60 * 1000 })
 
   if (!favorites.length) {
     return <p className={styles.alert}>
@@ -42,6 +42,7 @@ const Favorites = () => {
             image={coinData.image}
             currentPrice={coinData.current_price}
             priceChange={coinData.price_change_percentage_24h}
+            lastUpdate={coinData.last_updated}
           />
         )}
       </div>

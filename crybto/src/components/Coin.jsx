@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 
 import styles from "./Coin.module.css";
+import { convertToFullDate } from '../helper/dateConverter';
 
-const Coin = ({ id, symbol, name, image, currentPrice, priceChange }) => {
+const Coin = ({ id, symbol, name, image, currentPrice, priceChange, lastUpdate }) => {
     return (
         <Link to={id} className={styles.coinContainer}>
             <div className={styles.coinName}>
@@ -12,7 +13,10 @@ const Coin = ({ id, symbol, name, image, currentPrice, priceChange }) => {
                 </div>
                 <h1>{name}</h1>
             </div>
-            <h1 className={styles.price}>${currentPrice < 1000 ? currentPrice : currentPrice.toLocaleString()}</h1>
+            <div className={styles.price}>
+                <h1>${currentPrice < 1000 ? currentPrice : currentPrice.toLocaleString()}</h1>
+                <p>{convertToFullDate(lastUpdate)}</p>
+            </div>
             <h1 className={`${styles.percentage} ${priceChange >= 0 ? styles.green : styles.red}`}> {priceChange >= 0 ? <span className={styles.triangleUp} /> : <span className={styles.triangleDown} />}  {priceChange.toFixed(2)}%</h1>
         </Link>
     );
