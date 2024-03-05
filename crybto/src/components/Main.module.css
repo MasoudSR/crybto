@@ -34,7 +34,7 @@
 }
 
 .headerButtons div:last-child {
-    flex: 0.2 1 0;
+    flex: 0.4 1 0;
     border-radius: 16px 16px 0 0;
     transition: all .5s;
 }

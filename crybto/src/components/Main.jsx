@@ -1,11 +1,15 @@
+// Hooks
 import { useState } from "react"
+
+// Components
 import Coins from './Coins'
 import Search from "./Search";
-
-import styles from "./Main.module.css"
+import Favorites from "./Favorites";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { IoIosArrowUp } from "react-icons/io";
-import Favorites from "./Favorites";
+
+// Other
+import styles from "./Main.module.css"
 
 
 function Main() {

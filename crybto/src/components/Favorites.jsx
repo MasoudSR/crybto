@@ -1,13 +1,17 @@
+// Hooks 
 import { useState } from "react";
 import axios from "axios";
-
-import Coin from "./Coin";
-import styles from "./Coins.module.css"
-// import PageButtons from "./PageButtons";
 import { useQuery } from "@tanstack/react-query";
+
+// Components 
+import Coin from "./Coin";
 import CoinLoading from "./Loading/CoinLoading";
-import { getFavorites } from "../helper/favoritesManager";
 import { TiStarOutline } from "react-icons/ti";
+// import PageButtons from "./PageButtons";
+
+// Other 
+import styles from "./Coins.module.css"
+import { getFavorites } from "../helper/favoritesManager";
 
 
 const Favorites = () => {
@@ -22,7 +26,7 @@ const Favorites = () => {
   if (!favorites.length) {
     return <p className={styles.alert}>
       <h4>You Have No Favorite Coin </h4>
-      <p> use <TiStarOutline /> icon to add coin in favorites</p>
+      <p>use <TiStarOutline /> icon to add coin in favorites</p>
     </p>
   } else return (
     <div className={styles.container}>

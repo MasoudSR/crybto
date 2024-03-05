@@ -1,11 +1,15 @@
+// Hooks 
 import { useState } from "react";
 import axios from "axios";
-
-import Coin from "./Coin";
-import styles from "./Coins.module.css"
-import PageButtons from "./PageButtons";
 import { useQuery } from "@tanstack/react-query";
+
+// Components 
+import Coin from "./Coin";
+import PageButtons from "./PageButtons";
 import CoinLoading from "./Loading/CoinLoading";
+
+// Other 
+import styles from "./Coins.module.css"
 
 const Coins = () => {
     const [pageNumber, setPageNumber] = useState(1)
