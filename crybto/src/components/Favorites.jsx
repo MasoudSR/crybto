@@ -21,7 +21,7 @@ const Favorites = () => {
 
   const fetchCoins = () => axios.get(api)
 
-  const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", favorites , pageNumber], queryFn: fetchCoins, refetchInterval: 60 * 1000 })
+  const { data, isLoading, isError, error } = useQuery({ queryKey: ["coins", favorites, pageNumber], queryFn: fetchCoins, refetchInterval: 60 * 1000 })
 
   if (!favorites.length) {
     return <p className={styles.alert}>

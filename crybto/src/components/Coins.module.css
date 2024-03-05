@@ -21,6 +21,7 @@
     background-color: rgb(235, 235, 235);
     max-width: 1024px;
     padding-top: 1px;
+    min-height: calc(100vh - 400px);
 }
 
 .alert {
@@ -50,6 +51,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         border-radius: 0px 0px 16px 16px;
+        min-height: 0
     }
 
     .coinsContainer>a {
