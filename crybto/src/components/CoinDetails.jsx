@@ -14,6 +14,7 @@ import { TiStarOutline, TiStarFullOutline } from "react-icons/ti";
 
 
 const CoinDetails = () => {
+    const matn = 15.56511965
     const params = useParams();
 
     const [favorite, setFavorite] = useState(isFavorite(params.id))
@@ -54,7 +55,7 @@ const CoinDetails = () => {
                     <table className={styles.coinDetailsTable}>
                         <tbody>
                             <tr>
-                                <td>${data.data.market_data.current_price.usd.toLocaleString()}</td>
+                                <td>${data.data.market_data.current_price.usd < 1000 ? data.data.market_data.current_price.usd : data.data.market_data.current_price.usd.toLocaleString()}</td>
                                 {tomanIsLoading ? <td><Skeleton width={170} height={21} /></td> :
                                     !isTomanError && <td className={styles.toman}>{parseInt((parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd)).toLocaleString()} تومان</td>}
                             </tr>

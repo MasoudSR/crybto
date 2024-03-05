@@ -12,7 +12,7 @@ const Coin = ({ id, symbol, name, image, currentPrice, priceChange }) => {
                 </div>
                 <h1>{name}</h1>
             </div>
-            <h1 className={styles.price}>${currentPrice.toLocaleString()}</h1>
+            <h1 className={styles.price}>${currentPrice < 1000 ? currentPrice : currentPrice.toLocaleString()}</h1>
             <h1 className={`${styles.percentage} ${priceChange >= 0 ? styles.green : styles.red}`}> {priceChange >= 0 ? <span className={styles.triangleUp} /> : <span className={styles.triangleDown} />}  {priceChange.toFixed(2)}%</h1>
         </Link>
     );
