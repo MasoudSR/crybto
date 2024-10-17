@@ -1,26 +1,23 @@
-کریبتو: سایت نمایش قیمت انواع رمزارز
+🎯 Crybto: Cryptocurrency Price Board
 
-قابلیت‌ها:
-نمایش قیمت و درصد تغییر قیمت در ۲۴ ساعت گذشته<br>
-به روز رسانی خودکار قیمت‌ها بدون نیاز به تازه‌سازی صفحه (REFRESH)<br>
-محاسبه خودکار و نمایش قیمت رمزارز به تومان<br>
-نمایش نمودار تغییرات قیمت<br>
-قابلیت جستجو بین رمزارز‌ها<br>
-امکان اضافه کردن رمزارز به مورد علاقه‌ها جهت دسترسی آسان‌تر<br>
+Crybto is a web application that provides up-to-date information on cryptocurrency prices.
 
-مشاهده سایت: <a href="http://crybto.masoudsr.ir">crybto.masoudsr.ir</a>
+Features:<br>
+📈 Show price and percentage change in the last 24 hours.<br>
+🔄 Automatic price updates (no need to refresh the page).<br>
+💰 Convert and display the price of cryptocurrencies in Toman (Iranian currency).<br>
+📊 Visualize price changes with line graphs for the last 7 days, 30 days, 3 months, 6 months, and 1 year.<br>
+🔍 Search for specific cryptocurrencies.<br>
+⭐ Add favorite cryptocurrencies for easier access.
 
-Crybto: Cryptocurrency Price Board
+![Crybto Screenshot](./screenshots/screenshot.png)
 
-Features:
-Show price and price change percentage in the last 24 hours<br>
-Updating prices automatically (no need to refresh the page)<br>
-Calculate and show the price of cryptocurrency in Toman(iranian currency)<br>
-Display the graph of price changes in the last 7 days<br>
-Ability to search between cryptocurrencies<br>
-Ability to add cryptocurrency to favorites for easier access<br>
+Technologies Used:<br>
+-React.js<br>
+-ReactRouter<br>
+-RestApi<br>
+-Axios<br>
+-ReactQuery<br>
+-ModularCSS
 
-Made with:
-React.js - ReactRouter - RestApi - Axios - ReactQuery - ModularCSS
-
-try it: <a href="http://crybto.masoudsr.ir">crybto.masoudsr.ir</a>
+🌐 Try it out: [crybto.masoudsr.ir](https://crybto.masoudsr.ir)
