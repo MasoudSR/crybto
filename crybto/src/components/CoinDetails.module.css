@@ -100,6 +100,19 @@
     background-color: rgb(255, 23, 23);
 }
 
+.backBtn{
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+}
+
+.backBtn:hover{
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
 @media (min-width: 1024px) {
     .container {
         border-radius: 20px;

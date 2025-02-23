@@ -1,7 +1,7 @@
 // Hooks
 import { useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 // Components 
@@ -23,6 +23,7 @@ const CoinDetails = () => {
     const params = useParams();
 
     const [favorite, setFavorite] = useState(isFavorite(params.id))
+    const navigate = useNavigate()
 
     const fetchCoin = () => axios.get(`https://api.coingecko.com/api/v3/coins/${params.id}?localization=false&tickers=false&community_data=false&developer_data=false&x_cg_demo_api_key=${import.meta.env.VITE_API_KEY}`)
     const { data, error, isError, isLoading } = useQuery({ queryKey: ["coin", params.id], queryFn: fetchCoin, refetchInterval: 60 * 1000 })
@@ -41,6 +42,15 @@ const CoinDetails = () => {
         }
     }
 
+    const backHandler = () => {
+        const canGoBack = window.history.state.idx !== 0;
+        if (canGoBack) {
+            navigate(-1)
+        } else {
+            navigate("/")
+        }
+    }
+
     if (isLoading) {
         return <CoinDetailsLoading />
     } else if (isError) {
@@ -49,9 +59,7 @@ const CoinDetails = () => {
         return (
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <Link to={"/"}>
-                        <MdArrowBack size={30} />
-                    </Link>
+                    <button className={styles.backBtn} onClick={backHandler}><MdArrowBack size={30} /></button>
                     <img src={data.data.image.large} alt={data.data.name} />
                     <h1>{data.data.name}<span className={styles.symbol}>({data.data.symbol.toUpperCase()})</span></h1>
                     <div onClick={favoriteHandler}>{favorite ? <TiStarFullOutline size={30} color="#F7D001" /> : <TiStarOutline size={30} />}</div>
