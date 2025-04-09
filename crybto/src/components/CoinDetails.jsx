@@ -51,6 +51,13 @@ const CoinDetails = () => {
         }
     }
 
+    const showToman = () => {
+        const rial = parseInt(tomanData.data.p.replace(/,/g, ""))
+        const dollar = data.data.market_data.current_price.usd
+        const result = Math.floor(rial * dollar / 10)
+        return result.toLocaleString()
+    }
+
     if (isLoading) {
         return <CoinDetailsLoading />
     } else if (isError) {
@@ -70,7 +77,7 @@ const CoinDetails = () => {
                             <tr>
                                 <td>${data.data.market_data.current_price.usd < 1000 ? data.data.market_data.current_price.usd : data.data.market_data.current_price.usd?.toLocaleString()}</td>
                                 {tomanIsLoading ? <td><Skeleton width={170} height={21} /></td> :
-                                    !isTomanError && <td className={styles.toman}>{parseInt((parseInt(tomanData.data.p) * 100 * data.data.market_data.current_price.usd)).toLocaleString()} تومان</td>}
+                                    !isTomanError && <td className={styles.toman}>{showToman()} تومان</td>}
                             </tr>
                             <tr>
                                 <td>Last Update</td>
